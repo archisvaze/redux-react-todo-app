@@ -1,0 +1,105 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    min-height: 30px;
+    min-width: 30px;
+    border: none;
+    background-color: var(--background-secondary);
+    color: var(--text-primary);
+    padding: 5px 10px;
+}
+
+
+input {
+    padding: 5px;
+    width: 100%;
+    border: 1px solid var(--text-primary);
+    outline: none;
+    background-color: var(--background);
+    color: var(--text-primary);
+}
+
+.light {
+    --background: white;
+    --text-primary: black;
+    --background-secondary: rgb(210, 210, 210);
+}
+
+.dark {
+    --background: black;
+    --text-primary: white;
+    --background-secondary: rgb(40, 40, 40);
+}
+
+.main {
+    background-color: var(--background);
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    border: 1px solid var(--text-primary);
+    ;
+    min-width: 350px;
+    width: 40vw;
+    max-width: 900px;
+    position: relative;
+    padding: 30px;
+}
+
+.toggle {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.input-container {
+    display: flex;
+}
+
+.todos-container {
+    height: 300px;
+    border: 1px solid var(--text-primary);
+    overflow-y: scroll;
+}
+
+.todo {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    gap: 10px;
+}
+.content{
+    font-weight: bold;
+}
+.actions {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 30px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.true {
+    text-decoration-line: line-through;
+    text-decoration-color: var(--text-primary);
+    text-decoration-thickness: 3px;
+}
+
+.false {
+    text-decoration-line: none;
+}
