@@ -1,7 +1,10 @@
+@import url("https://cdn.jsdelivr.net/npm/@xz/fonts@1/serve/cascadia-code.min.css");
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Cascadia Code', sans-serif;
 }
 
 button {
@@ -15,6 +18,7 @@ button {
     background-color: var(--background-secondary);
     color: var(--text-primary);
     padding: 5px 10px;
+    border-radius: 5px;
 }
 
 
@@ -31,12 +35,14 @@ input {
     --background: white;
     --text-primary: black;
     --background-secondary: rgb(210, 210, 210);
+    --bacground-blur: rgba(255, 255, 255, 0.3);
 }
 
 .dark {
     --background: black;
     --text-primary: white;
     --background-secondary: rgb(40, 40, 40);
+    --bacground-blur: rgba(0, 0, 0, 0.3);
 }
 
 .main {
@@ -47,22 +53,36 @@ input {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    transition: 1s ease;
 }
 
 .container {
     border: 1px solid var(--text-primary);
-    ;
     min-width: 350px;
-    width: 40vw;
+    width: 80vw;
     max-width: 900px;
     position: relative;
-    padding: 30px;
+    padding: 40px;
+    box-shadow: 5px 10px 20px 5px rgba(0, 0, 0, 0.3);
+    background-color: var(--bacground-blur);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    border-radius: 5px;
+}
+
+.container img {
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.toggle:hover {
+    transform: rotate(60deg)
 }
 
 .toggle {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 10px;
+    right: 10px;
 }
 
 .input-container {
@@ -70,7 +90,8 @@ input {
 }
 
 .todos-container {
-    height: 300px;
+    margin: 30px 0;
+    height: 400px;
     border: 1px solid var(--text-primary);
     overflow-y: scroll;
 }
@@ -78,18 +99,22 @@ input {
 .todo {
     display: flex;
     align-items: center;
-    margin: 10px 0;
+    margin: 10px 0 0 10px;
     gap: 10px;
 }
-.content{
+
+.content {
+    width: 80%;
     font-weight: bold;
+    word-wrap: break-word;
 }
+
 .actions {
     display: flex;
-    justify-content: space-between;
-    padding: 0 30px;
+    justify-content: space-evenly;
+    padding: 0 40px;
     position: absolute;
-    bottom: 0;
+    bottom: 20px;
     left: 0;
     right: 0;
 }
@@ -102,4 +127,14 @@ input {
 
 .false {
     text-decoration-line: none;
+}
+
+.trash {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}
+
+.trash:hover {
+    transform: translateY(-5px);
 }

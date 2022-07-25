@@ -1,7 +1,11 @@
 import Todo from "./Todo";
 import { useSelector, useDispatch } from 'react-redux';
-import { save, add, toggle, showCompleted, showActive, showAll } from "../slices/todoSlice"
+import { save, add, toggle, showCompleted, showActive, showAll, clear } from "../slices/todoSlice"
 import { useEffect } from "react";
+import sun from "../sun.svg"
+import moon from "../moon.svg"
+import trash_light from "../trash-light.svg"
+import trash_dark from "../trash-dark.svg"
 
 
 function App(props) {
@@ -14,7 +18,6 @@ function App(props) {
         localStorage.setItem("redux-todo-state", JSON.stringify(state))
     }, [state])
 
-    
     let completed = 0;
     let active = 0
     for (let obj of state.todos) {
@@ -25,10 +28,10 @@ function App(props) {
     return (
         <div className={"main " + state.theme}>
             <div className="container">
-                <button onClick={() => dispatch(toggle())} className="toggle">{state.theme}</button>
+                <img src={state.theme === "light" ? sun : moon} onClick={() => dispatch(toggle())} className="toggle" alt=""></img>
                 <div className="input-container">
-                    <input onChange={(e) => dispatch(save(e.target.value))} type="text" value={state.saved} />
-                    <button onClick={(e) => dispatch(add(state.saved))}>add</button>
+                    <input onChange={(e) => dispatch(save(e.target.value))} type="text" onKeyDown={(e) => e.key === "Enter" ? dispatch(add(state.saved)): ""} value={state.saved} />
+                    <button onClick={(e) => dispatch(add(state.saved))}>+</button>
                 </div>
 
 
@@ -58,6 +61,8 @@ function App(props) {
                     <button onClick={() => dispatch(showActive())} className="active">{active}active</button>
                     <button onClick={() => dispatch(showCompleted())} className="completed">{completed}completed</button>
                 </div>
+
+                <img onClick={() => dispatch(clear())} className="trash" src={state.theme === "light" ? trash_light : trash_dark} alt="" />
             </div>
 
         </div>

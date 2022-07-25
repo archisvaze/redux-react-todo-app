@@ -40,6 +40,14 @@ const todoSlice = createSlice({
         },
         showAll: (state, action) => {
             state.flag = "all"
+        },
+        clear: (state, action) => {
+            for (let i = 0; i < state.todos.length; i++) {
+                if (state.todos[i].completed) {
+                    state.todos.splice(i, 1);
+                    i--;
+                }
+            }
         }
 
     }
@@ -47,5 +55,5 @@ const todoSlice = createSlice({
 })
 
 
-export const { save, add, toggle, complete, showCompleted, showAll, showActive } = todoSlice.actions;
+export const { save, add, toggle, complete, showCompleted, showAll, showActive, clear } = todoSlice.actions;
 export default todoSlice.reducer;

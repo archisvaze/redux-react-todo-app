@@ -15,6 +15,5 @@ export default function Todo(props) {
             <div className={`${obj.completed} content`}>{obj.content}</div>
         </div>
 
-
     )
 }
