@@ -11,7 +11,7 @@ export default function Todo(props) {
     if (obj.completed) tick = "✔"
     return (
         <div className="todo">
-            <button type="checkbox" onClick={() => dispatch(complete(obj.id))} className="complete">{tick}</button>
+            <button type="checkbox" onClick={() => dispatch(complete(obj.id))} className="complete-button">{tick}</button>
             <div className={`${obj.completed} content`}>{obj.content}</div>
         </div>
 
