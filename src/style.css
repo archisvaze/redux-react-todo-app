@@ -12,7 +12,9 @@
     --text-primary: black;
     --background-secondary: rgb(210, 210, 210);
     --primary-blur: rgba(255, 255, 255, 0.3);
-    --secondary-blur: rgba(255, 255, 255, 0.5)
+    --secondary-blur: rgba(255, 255, 255, 0.5);
+
+    --actions-bg: #6ebae9;
 }
 
 .dark {
@@ -20,7 +22,9 @@
     --text-primary: white;
     --background-secondary: rgb(40, 40, 40);
     --primary-blur: rgba(0, 0, 0, 0.3);
-    --secondary-blur: rgba(0, 0, 0, 0.5)
+    --secondary-blur: rgba(0, 0, 0, 0.5);
+
+    --actions-bg: #457B9D;
 }
 
 button {
@@ -37,7 +41,7 @@ button {
 
 
 .main {
-    /* background-color: var(--background); */
+    background-color: var(--background);
     color: var(--text-primary);
     min-height: 100vh;
     display: flex;
@@ -171,12 +175,53 @@ input {
     text-decoration-line: none;
 }
 
+
+
+.trash-img:hover {
+    transform: translateY(-5px);
+}
+
+
 .trash {
     position: absolute;
     right: 10px;
     bottom: 10px;
 }
 
-.trash:hover {
-    transform: translateY(-5px);
+.delete-msg {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    right: 5px;
+    bottom: 40px;
+    display: none;
+    padding: 20px;
+    font-size: 14px;
+    color: white;
+    box-shadow: 5px 10px 20px 5px rgba(0, 0, 0, 0.3);
+    background-color: #E63946;
+    border-radius: 10px;
+    animation: slideup 0.5s ease;
+}
+
+.trash:hover .delete-msg {
+    display: flex;
+}
+
+
+
+@keyframes slideup {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+
+    }
 }

@@ -34,6 +34,10 @@ function App(props) {
     }
     active = state.todos.length - completed;
 
+    let deleteMsg = "";
+    if (completed > 0) deleteMsg = "DELETE all completed Todos?";
+    else if (completed === 0) deleteMsg = "0 Completed Todos ✔";
+
     return (
         <div className={"main " + state.theme} style={{ backgroundImage: state.theme === "light" ? `url(${light})` : `url(${dark})` }}>
 
@@ -45,7 +49,7 @@ function App(props) {
 
                 <img src={state.theme === "light" ? sun : moon} onClick={() => dispatch(toggle())} className="toggle" alt=""></img>
                 <div className="input-container">
-                    <input onChange={(e) => dispatch(save(e.target.value))} type="text" onKeyDown={(e) => e.key === "Enter" ? dispatch(add(state.saved)) : ""} value={state.saved} placeholder ="Add a new Todo" />
+                    <input onChange={(e) => dispatch(save(e.target.value))} type="text" onKeyDown={(e) => e.key === "Enter" ? dispatch(add(state.saved)) : ""} value={state.saved} placeholder="Add a new Todo" />
                     <button onClick={(e) => dispatch(add(state.saved))}>+</button>
                 </div>
 
@@ -72,12 +76,18 @@ function App(props) {
                 </div>
 
                 <div className="actions">
-                    <button onClick={() => dispatch(showAll())} className="all">All</button>
-                    <button onClick={() => dispatch(showActive())} className="active">{active} Active</button>
-                    <button onClick={() => dispatch(showCompleted())} className="completed">{completed} Completed</button>
-                </div>
+                    <button style={{ border: state.flag === 'all' ? "2px solid rgba(255, 255, 255, 0.5)" : "2px solid rgba(255, 255, 255, 0)", backgroundColor: state.flag === "all" ? "var(--actions-bg)" : "var(--secondary-blur)" }} onClick={() => dispatch(showAll())} className="all">All</button>
 
-                <img onClick={() => dispatch(clear())} className="trash" src={state.theme === "light" ? trash_light : trash_dark} alt="" />
+                    <button style={{ border: state.flag === 'active' ? "2px solid rgba(255, 255, 255, 0.5)" : "2px solid rgba(255, 255, 255, 0)", backgroundColor: state.flag === "active" ? "var(--actions-bg)" : "var(--secondary-blur)" }} onClick={() => dispatch(showActive())} className="active">{active} Active</button>
+
+                    <button style={{ border: state.flag === 'completed' ? "2px solid rgba(255, 255, 255, 0.5)" : "2px solid rgba(255, 255, 255, 0)", backgroundColor: state.flag === "completed" ? "var(--actions-bg)" : "var(--secondary-blur)" }} onClick={() => dispatch(showCompleted())} className="completed">{completed} Completed</button>
+                </div>
+                <div className="trash">
+
+                    <span style={{backgroundColor: completed > 0? "#E63946" : "#1D3557"}} className="delete-msg">{deleteMsg}</span>
+
+                    <img onClick={() => dispatch(clear())} className="trash-img" src={state.theme === "light" ? trash_light : trash_dark} alt="" />
+                </div>
             </div>
 
         </div>
