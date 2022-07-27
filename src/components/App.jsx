@@ -6,8 +6,7 @@ import sun from "../sun.svg"
 import moon from "../moon.svg"
 import trash_light from "../trash-light.svg"
 import trash_dark from "../trash-dark.svg";
-import light from "../light.jpg";
-import dark from "../dark.jpg";
+
 
 
 function App(props) {
