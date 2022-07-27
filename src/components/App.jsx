@@ -84,7 +84,7 @@ function App(props) {
                 </div>
                 <div className="trash">
 
-                    <span style={{backgroundColor: completed > 0? "#E63946" : "#1D3557"}} className="delete-msg">{deleteMsg}</span>
+                    <span style={{backgroundColor: completed > 0? "#E63946" : "#457B9D"}} className="delete-msg">{deleteMsg}</span>
 
                     <img onClick={() => dispatch(clear())} className="trash-img" src={state.theme === "light" ? trash_light : trash_dark} alt="" />
                 </div>

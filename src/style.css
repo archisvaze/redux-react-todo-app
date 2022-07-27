@@ -15,6 +15,8 @@
     --secondary-blur: rgba(255, 255, 255, 0.5);
 
     --actions-bg: #6ebae9;
+
+    --complete-btn: #457B9D;
 }
 
 .dark {
@@ -25,6 +27,8 @@
     --secondary-blur: rgba(0, 0, 0, 0.5);
 
     --actions-bg: #457B9D;
+
+    --complete-btn: #6ebae9;
 }
 
 button {
@@ -147,6 +151,7 @@ input {
     height: 25px;
     font-size: 10px;
     border-radius: 12.5px;
+    color: var( --complete-btn);
 }
 
 .content {
@@ -200,7 +205,7 @@ input {
     padding: 20px;
     font-size: 14px;
     color: white;
-    box-shadow: 5px 10px 20px 5px rgba(0, 0, 0, 0.3);
+    box-shadow: 2px 2px 8px 1px rgba(0, 0, 0, 0.2);
     background-color: #E63946;
     border-radius: 10px;
     animation: slideup 0.5s ease;
