@@ -39,7 +39,7 @@ function App(props) {
     else if (completed === 0) deleteMsg = "0 Completed Todos ✔";
 
     return (
-        <div className={"main " + state.theme} style={{ backgroundImage: state.theme === "light" ? `url(${light})` : `url(${dark})` }}>
+        <div className={"main " + state.theme}>
 
             <div className="container">
 

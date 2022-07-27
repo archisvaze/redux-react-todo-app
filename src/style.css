@@ -17,6 +17,8 @@
     --actions-bg: #6ebae9;
 
     --complete-btn: #457B9D;
+
+    --main-bg: url('./light.jpg');
 }
 
 .dark {
@@ -29,6 +31,8 @@
     --actions-bg: #457B9D;
 
     --complete-btn: #6ebae9;
+
+    --main-bg: url('./dark.jpg');
 }
 
 button {
@@ -45,6 +49,7 @@ button {
 
 
 .main {
+    background-image: var(--main-bg);
     background-color: var(--background);
     color: var(--text-primary);
     min-height: 100vh;
