@@ -1,3 +1,20 @@
+## TODO App using React-Redux
+
+Site Link : https://dashing-fox-fd5519.netlify.app/
+
+![Screenshot 2022-07-27 080304](https://user-images.githubusercontent.com/92965519/181149923-d69940a3-59fb-4b1b-ab61-6b6d2f1ae86f.png)
+
+### Todo App has following Functionalities
+    - A beautiful and simple interface to create todos
+    - Toggle between light and dark modes
+    - Write your task description in brief and then click + icon or hit Enter
+    - Todo are added to the All and Active lists
+    - Completing the todo adds it to Completed todos list
+    - Click the delete icon to delete all Completed todos
+
+### Todo App uses LocalStorage so your todos lists are saved and restored the next time yout visit the app.
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
